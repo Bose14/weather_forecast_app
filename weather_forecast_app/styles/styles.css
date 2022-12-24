@@ -1,0 +1,104 @@
+ul {
+    list-style: none;
+  }
+  footer {
+    font-family: monospace, sans-serif, times;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+  }
+  footer>a{
+    text-decoration: none;
+    text-align: left;
+  }
+  h1{
+    background-color: aqua;
+  }
+  body{
+    background-color: yellow;
+    background-size: cover;
+  }
+  .weatherApp {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMcb0nyFRQpZUvkS8tw0K0qBjpa6a4VrEhEw&usqp=CAU");
+    background-size: cover;
+    background-position: 100%;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    margin: 0px;
+    border-radius: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .currentDateTime {
+    padding: 500px;
+    font-size: 16px;
+  }
+  
+  .currentCity {
+    font-size: 24px;
+    text-transform: capitalize;
+  }
+  
+  .units {
+    position: relative;
+    top: -25px;
+    font-weight: 100;
+    font-size: 14px;
+  }
+  
+  .linkUnits {
+    font-weight: 100;
+    font-size: 20px;
+  }
+  
+  .generalText .active {
+    cursor: default;
+    text-decoration: none;
+  }
+  
+  .generalText {
+    font-weight: 100;
+    font-size: 20px;
+  }
+  #city1{
+    font-weight: 100;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .forecastText {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  .capitalize {
+    text-transform: capitalize;
+  }
+  
+  .currentConditionsIcon {
+    font-size: 25px;
+    margin-right: 1px;
+    position: relative;
+    top: -15px;
+  }
+  
+  .dayTemp {
+    font-weight: 600;
+    font-size: 50px;
+  }
+  
+  .forecastCondition {
+    font-size: 12px;
+    font-weight: 100;
+    margin-top: 2px;
+  }
+  
+  .forecastCondition:first-letter {
+    text-transform: capitalize;
+  }
+  
+  .search {
+    font-weight: 200;
+    font-size: 15px;
+  }
+  
