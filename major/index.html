@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Weather Forecast</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles/styles.css" class="css" />
+    <script
+      src="https://kit.fontawesome.com/4bd185051d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1 align="center">WEATHER FORECAST APPLICATION</h1>
+    <div class="container containercss">
+      <div class="card weatherApp rounded-3 p-5">
+        <!--Row 1 contains the search input-->
+        <div class="row ms-1">
+          <div class="col">
+            <form id="search-form" align="center">
+              <input
+                type="search"
+                id="search-city-input"
+                name="city"
+                autocomplete="off"
+                placeholder="Enter a city..."
+                class="rounded-2 border border-1 search"
+              >
+
+              <button
+                type="submit"
+                id="search-city-btn"
+                class="rounded-2 border border-0 submitButton"
+              >
+                <i class="fa-solid fa-magnifying-glass search"></i>
+              </button>
+
+              <button
+                id="current-location-btn"
+                class="rounded-2 border border-0 submitButton"
+              >
+                <i class="fa-solid fa-location-arrow"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="row ms-1">
+          <div class="col">
+            <span class="generalText" id="current-date-time"> </span>
+          </div>
+        </div>
+
+        <!--Row 2 contains info-->
+
+        <div class="position-relative">
+          <div class="row ms-1 text-center m-3">
+            <div class="col">
+              <ul>
+                <li align="right">
+                  <i class="city1"></i> City : 
+                  <span class="currentCity" id="current-city"></span>
+                </li>
+                <li align="right">
+                  <i class="city1"></i> Condition : 
+                  <span class="generalText capitalize" id="current-conditions"></span>
+                </li>
+                <li class="generalText mt-3" align="left">
+                  <i class="fa-solid fa-wind day-precip"></i> Wind:
+                  <span id="windspeed"></span> km/h
+                </li>
+                <li class="generalText" align="left">
+                  <i class="fa-solid fa-droplet day-precip"></i> Humidity:
+                  <span id="humidity"></span>%
+                </li>
+                <li>
+                  <span class="dayTemp">
+                    <span id="current-conditions-icon" class="currentConditionsIcon"></span>
+                    <span id="current-temperature"></span>
+                  </span>
+                  <span class="units" id="selected-unit"></span>
+                </li>               
+                <li class="generalText">
+                  <span class="linkUnits">
+                    <a class="active" id="units-celsius" href="#"> °C </a>
+                    <span> | </span>
+                    <a id="units-fahrenheit" href="#"> °F </a>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!--Row 3 is the forecast-->
+
+        <div class="row m-1 p-1">
+          <p class="generalText" align="center">Next 6 days</p>
+          <hr />
+
+          <!--1-->
+
+          <div class="col bg-dark p-2 m-1 rounded bg-opacity-50">
+            <div class="text-center text-light">
+              <div id="day-1"></div>
+              <span id="forecast-icon-1"></span>
+              <div class="forecastText">
+                <span id="forecast-temp-1"></span>
+                <span>°</span>
+              </div>
+            </div>
+          </div>
+
+          <!--2-->
+
+          <div class="col bg-dark p-2 m-1 rounded bg-opacity-50">
+            <div class="text-center text-light">
+              <div id="day-2"></div>
+              <span id="forecast-icon-2"></span>
+              <div class="forecastText">
+                <span id="forecast-temp-2"></span>
+                <span>°</span>
+              </div>
+            </div>
+          </div>
+
+          <!--3-->
+
+          <div class="col bg-dark p-2 m-1 rounded bg-opacity-50">
+            <div class="text-center text-light">
+              <div id="day-3"></div>
+              <span id="forecast-icon-3"></span>
+              <div class="forecastText">
+                <span id="forecast-temp-3"></span>
+                <span>°</span>
+              </div>
+            </div>
+          </div>
+
+          <!--4-->
+
+          <div class="col bg-dark p-2 m-1 rounded bg-opacity-50">
+            <div class="text-center text-light">
+              <div id="day-4"></div>
+              <span id="forecast-icon-4"></span>
+              <div class="forecastText">
+                <span id="forecast-temp-4"></span>
+                <span>°</span>
+              </div>
+            </div>
+          </div>
+
+          <!--5-->
+
+          <div class="col bg-dark p-2 m-1 rounded bg-opacity-50">
+            <div class="text-center text-light">
+              <div id="day-5"></div>
+              <span id="forecast-icon-5"></span>
+              <div class="forecastText">
+                <span id="forecast-temp-5"></span>
+                <span>°</span>
+              </div>
+            </div>
+          </div>
+
+          <!--6-->
+            <div class="col bg-dark p-2 m-1 rounded bg-opacity-50">
+              <div class="text-center text-light">
+                <div id="day-6"></div>
+                <span id="forecast-icon-6"></span>
+                <div class="forecastText">
+                  <span id="forecast-temp-6"></span>
+                  <span>°</span>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <footer>
+        Developed by Bose
+      </footer>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
